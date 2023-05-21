@@ -2,7 +2,7 @@ package main.java.employee;
 
 import java.util.Comparator;
 
-public class SalaryComparator implements Comparator<Employee> {
+public class TopSalaryComparator implements Comparator<Employee> {
 
     @Override
     public int compare(Employee emp1, Employee emp2) {

@@ -1,2 +1,7 @@
-package main.java.employee;public interface Employee {
+package main.java.employee;
+
+public interface Employee {
+    int getMonthSalary();
+
+    int setCompanyIncome();
 }
