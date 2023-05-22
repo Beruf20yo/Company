@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d74acbbc-fb6e-4779-a8a0-aa31556bccf4" name="Changes" comment="Изменение премии у TopManager было +50% стало +150%">
+    <list default="true" id="d74acbbc-fb6e-4779-a8a0-aa31556bccf4" name="Changes" comment="Добавлен пользовательский интерфейс для метода getSalaryInfo в Main">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
@@ -82,12 +82,20 @@
       <option name="project" value="LOCAL" />
       <updated>1684758593728</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Добавлен пользовательский интерфейс для метода getSalaryInfo в Main">
+      <created>1684783049099</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684783049099</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Изменение премии у TopManager было +50% стало +150%" />
-    <option name="LAST_COMMIT_MESSAGE" value="Изменение премии у TopManager было +50% стало +150%" />
+    <MESSAGE value="Добавлен пользовательский интерфейс для метода getSalaryInfo в Main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлен пользовательский интерфейс для метода getSalaryInfo в Main" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
