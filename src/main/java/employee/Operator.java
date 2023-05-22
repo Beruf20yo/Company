@@ -16,7 +16,7 @@ public class Operator implements Employee {
         return monthSalary;
     }
 
-    public int setCompanyIncome() {
+    public int getCompanyIncome() {
         return 0;
     }
 }

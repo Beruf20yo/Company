@@ -3,15 +3,13 @@ package main.java.employee;
 import main.java.Company;
 
 public class Manager implements Employee {
-
-    private final int ratePerMounth = 60000;
-    public int incomePart;
     protected int monthSalary;
     Company company;
+    protected int companyIncome;
 
     public Manager(Company company) {
         this.company = company;
-        this.incomePart = setCompanyIncome();
+        this.companyIncome = setCompanyIncome();
     }
 
     @Override
@@ -23,9 +21,12 @@ public class Manager implements Employee {
         int startRange = 115000;
         int endRange = 140000;
         int incomePart = startRange + (int) (Math.random() * endRange);
+        int ratePerMounth = 60000;
         this.monthSalary = (incomePart * 5 / 100) + ratePerMounth;
         return incomePart;
-
     }
 
+    public int getCompanyIncome() {
+        return companyIncome;
+    }
 }

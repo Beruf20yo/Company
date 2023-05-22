@@ -6,14 +6,10 @@ import main.java.employee.TopSalaryComparator;
 import main.java.exceptions.WrongCount;
 import main.java.exceptions.WrongNumber;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Company {
     protected List<Employee> employees = new ArrayList<>();
-    protected int income = 0;
     String name;
 
     public String getName() {
@@ -23,7 +19,6 @@ public class Company {
     public void setName(String name) {
         this.name = name;
     }
-
 
 
     public void hire(Employee employee) {
@@ -40,10 +35,9 @@ public class Company {
                 throw new WrongNumber();
             }
             employees.remove(id);
-        }catch (WrongNumber e){
+        } catch (WrongNumber e) {
             System.out.println(e);
         }
-
 
 
     }
@@ -54,36 +48,31 @@ public class Company {
         employees.remove(startRange + (int) (Math.random() * endRange));
     }
 
+    public List<Employee> getSalaryStaff() {
+        TreeSet<Employee> SalaryTree = new TreeSet<>(new TopSalaryComparator());
+        SalaryTree.addAll(employees);
+        return new ArrayList<>(SalaryTree);
+    }
+
     public List<Employee> getTopSalaryStaff(int count) {
-
-            TreeSet<Employee> topSalaryTree = new TreeSet<>(new TopSalaryComparator());
-            List<Employee> topSalaryList = new ArrayList<>();
-            topSalaryTree.addAll(employees);
-
-            Iterator<Employee> it = topSalaryTree.iterator();
-            try {
-                if (count > topSalaryTree.size() - 1 || count < 0) {
-                    throw new WrongCount();
-                }
+        TreeSet<Employee> topSalaryTree = new TreeSet<>(new TopSalaryComparator());
+        List<Employee> topSalaryList = new ArrayList<>();
+        topSalaryTree.addAll(employees);
+        Iterator<Employee> it = topSalaryTree.iterator();
+        try {
+            if (count > topSalaryTree.size() - 1 || count < 0) {
+                throw new WrongCount();
+            }
             while (count != 0) {
                 topSalaryList.add(it.next());
                 count--;
             }
-        }catch (WrongCount e){
-            System.out.println(e);
+        } catch (WrongCount e) {
+            System.out.println(e + ", всего уникальных зарплат = " + topSalaryTree.size());
         }
         return topSalaryList;
     }
-    public List<Employee> getSalaryStaff(){
-        TreeSet<Employee> topSalaryTree = new TreeSet<>(new TopSalaryComparator());
-        List<Employee> SalaryList = new ArrayList<>();
-        topSalaryTree.addAll(employees);
-        Iterator<Employee> it = topSalaryTree.iterator();
-        while (it.hasNext()){
-            SalaryList.add(it.next());
-        }
-        return SalaryList;
-    }
+
     public List<Employee> getLowestSalaryStaff(int count) {
         TreeSet<Employee> lowSalaryTree = new TreeSet<>(new LowSalaryComparetor());
         List<Employee> lowSalaryList = new ArrayList<>();
@@ -93,25 +82,25 @@ public class Company {
             if (count > lowSalaryTree.size() - 1 || count < 0) {
                 throw new WrongCount();
             }
-        while (count != 0) {
-            lowSalaryList.add(it.next());
-            count--;
-        }
-
-        }catch (WrongCount e){
-            System.out.println(e);
+            while (count != 0) {
+                lowSalaryList.add(it.next());
+                count--;
+            }
+        } catch (WrongCount e) {
+            System.out.println(e + ", всего уникальных зарплат = " + lowSalaryTree.size());
         }
         return lowSalaryList;
     }
 
     public int getIncome() {
+        int income = 0;
         if (employees.isEmpty()) {
-            return 0;
+            return income;
         } else {
             for (Employee person : employees) {
-                income += person.setCompanyIncome();
+                income += person.getCompanyIncome();
             }
-            return this.income;
+            return income;
         }
 
     }

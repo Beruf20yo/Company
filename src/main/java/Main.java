@@ -24,10 +24,7 @@ public class Main {
         int chose = Integer.parseInt(input);
         switch (chose) {
             case 1 -> newCompany();
-            case 2 -> {
-                System.out.println("Всего доброго");
-                System.exit(0);
-            }
+            case 2 -> System.out.println("Всего доброго");
         }
     }
 
@@ -100,6 +97,7 @@ public class Main {
                             new TopManager(company), new Operator(company),
                             new Manager(company), new Manager(company)));
                     company.hireAll(employeeToAdd);
+                    System.out.println("Сотрудники добавлены");
                 }
             }
         }
@@ -112,29 +110,30 @@ public class Main {
                 3. Узнать самые низкие зарплаты""");
         String input = scanner.nextLine();
         int chose = Integer.parseInt(input);
-        switch (chose){
-            case 1:
-                for(Employee employee: company.getSalaryStaff()){
+        int count;
+        switch (chose) {
+            case 1 -> {
+                for (Employee employee : company.getSalaryStaff()) {
                     System.out.println(employee.getMonthSalary());
-                    break;
+
                 }
-            case 2:
-                System.out.println("Введите количество зарплат: ");
-                input = scanner.nextLine();
-                int count = Integer.parseInt(input);
-                for (Employee employee : company.getTopSalaryStaff(count)) {
-                    System.out.println(employee.getMonthSalary());
-                }
-                break;
-            case 3:
+            }
+            case 2 -> {
                 System.out.println("Введите количество зарплат: ");
                 input = scanner.nextLine();
                 count = Integer.parseInt(input);
-
-                for (Employee employee : company.getLowestSalaryStaff(count)) {
-                    System.out.println(employee);
+                for (Employee employee : company.getTopSalaryStaff(count)) {
+                    System.out.println(employee.getMonthSalary());
                 }
-                break;
+            }
+            case 3 -> {
+                System.out.println("Введите количество зарплат: ");
+                input = scanner.nextLine();
+                count = Integer.parseInt(input);
+                for (Employee employee : company.getLowestSalaryStaff(count)) {
+                    System.out.println(employee.getMonthSalary());
+                }
+            }
         }
 
 
