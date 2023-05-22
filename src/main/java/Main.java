@@ -81,10 +81,9 @@ public class Main {
                     "1. Добавить сотрудника" + "\n" +
                     "2. Удалить сотрудника" + "\n" +
                     "3. Узнать доход компании" + "\n" +
-                    "4. Узнать самые высокие зарплаты компании" + "\n" +
-                    "5. Узнать самые низкие зарплаты компании" + "\n" +
-                    "6. Создать ещё одну компанию/Выбрать другую" + "\n" +
-                    "7. Добавить сотрудников списком");// Список заранее прописан в программе
+                    "4. Узнать информацию о зарплатах компании" + "\n" +
+                    "5. Создать ещё одну компанию/Выбрать другую" + "\n" +
+                    "6. Добавить сотрудников списком");// Список заранее прописан в программе
             String input = scanner.nextLine();
             if (input.replace(" ", "").equalsIgnoreCase("exit")) {
                 System.out.println("Всего доброго");
@@ -109,7 +108,8 @@ public class Main {
                     choseCompany();
                     break;
                 case 6:
-                    List<Employee> employeeToAdd = new ArrayList<>(Arrays.asList(new Manager(company), new TopManager(company), new Operator(company),
+                    List<Employee> employeeToAdd = new ArrayList<>(Arrays.asList(new Manager(company),
+                            new TopManager(company), new Operator(company),
                             new Manager(company), new Manager(company)));
                     company.hireAll(employeeToAdd);
                     break;
@@ -118,8 +118,13 @@ public class Main {
         }
     }
     public static void getSalaryInfo(Company company){
+        System.out.println("Что вы хотите сделать?" + "\n" +
+                "1. Узнать все уникальные зарплаты" + "\n" +
+                "2. Узнать самые высокие зарплаты"+ "\n" +
+                "3. Узнать самые низкие зарплаты");
         String input = scanner.nextLine();
         int chose = Integer.parseInt(input);
+        System.out.println("");
         switch (chose){
             case 1:
                 for(Employee employee: company.getSalaryStaff()){
@@ -138,6 +143,7 @@ public class Main {
                 System.out.println("Введите количество зарплат: ");
                 input = scanner.nextLine();
                 count = Integer.parseInt(input);
+
                 for (Employee employee : company.getLowestSalaryStaff(count)) {
                     System.out.println(employee);
                 }
