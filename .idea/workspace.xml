@@ -6,16 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d74acbbc-fb6e-4779-a8a0-aa31556bccf4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/employee/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/employee/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/employee/LowSalaryComparetor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/employee/LowSalaryComparetor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/employee/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/employee/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/employee/Operator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/employee/Operator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/employee/TopManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/employee/TopManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/employee/TopSalaryComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/employee/TopSalaryComparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/WrongCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/WrongCount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/WrongNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/WrongNumber.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,14 +38,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/rinat/IdeaProjects/Company"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rinat/IdeaProjects/Company&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.java.Main" />
