@@ -12,6 +12,11 @@ import java.util.TreeSet;
 public class Company {
     protected List<Employee> employees = new ArrayList<>();
     String name;
+    protected int income;
+
+    public void setIncome(int income) {
+        this.income += income;
+    }
 
     public String getName() {
         return name;
@@ -78,14 +83,7 @@ public class Company {
 
     }
 
-
     public int getIncome() {
-        int income = 0;
-        if (!employees.isEmpty()) {
-            for (Employee person : employees) {
-                income += person.getCompanyIncome();
-            }
-        }
         return income;
 
     }

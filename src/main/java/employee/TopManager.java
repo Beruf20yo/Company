@@ -17,9 +17,4 @@ public class TopManager implements Employee {
         this.monthSalary = (company.getIncome() > 2000000) ? (ratePerMounth * 5 / 2) : ratePerMounth;
         return monthSalary;
     }
-
-
-    public int getCompanyIncome() {
-        return 0;
-    }
 }

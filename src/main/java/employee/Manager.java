@@ -10,6 +10,7 @@ public class Manager implements Employee {
     public Manager(Company company) {
         this.company = company;
         this.companyIncome = setCompanyIncome();
+        company.setIncome(companyIncome);
     }
 
     @Override
@@ -26,7 +27,4 @@ public class Manager implements Employee {
         return incomePart;
     }
 
-    public int getCompanyIncome() {
-        return companyIncome;
-    }
 }
