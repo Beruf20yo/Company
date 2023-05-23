@@ -1,12 +1,13 @@
 package main.java;
 
 import main.java.employee.Employee;
-import main.java.employee.LowSalaryComparetor;
+import main.java.employee.LowSalaryComparator;
 import main.java.employee.TopSalaryComparator;
-import main.java.exceptions.WrongCount;
-import main.java.exceptions.WrongNumber;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.TreeSet;
 
 public class Company {
     protected List<Employee> employees = new ArrayList<>();
@@ -31,14 +32,10 @@ public class Company {
 
     public void fire(int id) {
         try {
-            if (id > employees.size() - 1 || id < 0) {
-                throw new WrongNumber();
-            }
             employees.remove(id);
-        } catch (WrongNumber e) {
-            System.out.println(e);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Вы ввели неверное чилсо");
         }
-
 
     }
 
@@ -54,54 +51,42 @@ public class Company {
         return new ArrayList<>(SalaryTree);
     }
 
-    public List<Employee> getTopSalaryStaff(int count) {
-        TreeSet<Employee> topSalaryTree = new TreeSet<>(new TopSalaryComparator());
-        List<Employee> topSalaryList = new ArrayList<>();
-        topSalaryTree.addAll(employees);
-        Iterator<Employee> it = topSalaryTree.iterator();
+    public List<Employee> getTopOrLowSalaryStaff(int count, int setTopOrLow) {
+        TreeSet<Employee> SalaryTree;
+        if (setTopOrLow == 0) {
+            SalaryTree = new TreeSet<>(new TopSalaryComparator());
+        } else if (setTopOrLow == 1) {
+            SalaryTree = new TreeSet<>(new LowSalaryComparator());
+        } else {
+            return null;
+        }
+        List<Employee> SalaryList = new ArrayList<>();
+        SalaryTree.addAll(employees);
+        Iterator<Employee> it = SalaryTree.iterator();
         try {
-            if (count > topSalaryTree.size() - 1 || count < 0) {
-                throw new WrongCount();
+            if (count > SalaryTree.size() - 1 || count < 0) {
+                throw new IllegalStateException();
             }
             while (count != 0) {
-                topSalaryList.add(it.next());
+                SalaryList.add(it.next());
                 count--;
             }
-        } catch (WrongCount e) {
-            System.out.println(e + ", всего уникальных зарплат = " + topSalaryTree.size());
+        } catch (IllegalStateException e) {
+            System.out.println("Вы ввели неверное кол-во зарплат, всего уникальных зарплат = " + SalaryTree.size());
         }
-        return topSalaryList;
+        return SalaryList;
+
     }
 
-    public List<Employee> getLowestSalaryStaff(int count) {
-        TreeSet<Employee> lowSalaryTree = new TreeSet<>(new LowSalaryComparetor());
-        List<Employee> lowSalaryList = new ArrayList<>();
-        lowSalaryTree.addAll(employees);
-        Iterator<Employee> it = lowSalaryTree.iterator();
-        try {
-            if (count > lowSalaryTree.size() - 1 || count < 0) {
-                throw new WrongCount();
-            }
-            while (count != 0) {
-                lowSalaryList.add(it.next());
-                count--;
-            }
-        } catch (WrongCount e) {
-            System.out.println(e + ", всего уникальных зарплат = " + lowSalaryTree.size());
-        }
-        return lowSalaryList;
-    }
 
     public int getIncome() {
         int income = 0;
-        if (employees.isEmpty()) {
-            return income;
-        } else {
+        if (!employees.isEmpty()) {
             for (Employee person : employees) {
                 income += person.getCompanyIncome();
             }
-            return income;
         }
+        return income;
 
     }
 }

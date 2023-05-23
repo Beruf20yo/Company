@@ -4,8 +4,8 @@ import main.java.Company;
 
 public class Manager implements Employee {
     protected int monthSalary;
-    Company company;
     protected int companyIncome;
+    Company company;
 
     public Manager(Company company) {
         this.company = company;

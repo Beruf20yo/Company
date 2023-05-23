@@ -8,7 +8,7 @@ public class TopManager implements Employee {
     Company company;
 
     public TopManager(Company company) {
-        this.monthSalary = (company.getIncome() > 2000000) ? (ratePerMounth * 5 / 2) : ratePerMounth;
+        this.monthSalary = (company.getIncome() > 2000000) ? ((ratePerMounth * 5) / 2) : ratePerMounth;
         this.company = company;
     }
 

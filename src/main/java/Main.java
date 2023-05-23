@@ -6,7 +6,6 @@ import main.java.employee.Operator;
 import main.java.employee.TopManager;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -93,16 +92,17 @@ public class Main {
                 case 4 -> getSalaryInfo(company);
                 case 5 -> choseCompany();
                 case 6 -> {
-                    List<Employee> employeeToAdd = new ArrayList<>(Arrays.asList(new Manager(company),
+                    List<Employee> employeeToAdd = List.of(new Manager(company),
                             new TopManager(company), new Operator(company),
-                            new Manager(company), new Manager(company)));
+                            new Manager(company), new Manager(company));
                     company.hireAll(employeeToAdd);
                     System.out.println("Сотрудники добавлены");
                 }
             }
         }
     }
-    public static void getSalaryInfo(Company company){
+
+    public static void getSalaryInfo(Company company) {
         System.out.println("""
                 Что вы хотите сделать?
                 1. Узнать все уникальные зарплаты
@@ -122,7 +122,8 @@ public class Main {
                 System.out.println("Введите количество зарплат: ");
                 input = scanner.nextLine();
                 count = Integer.parseInt(input);
-                for (Employee employee : company.getTopSalaryStaff(count)) {
+                List<Employee> employeeList = company.getTopOrLowSalaryStaff(count, 0);
+                for (Employee employee : employeeList) {
                     System.out.println(employee.getMonthSalary());
                 }
             }
@@ -130,7 +131,8 @@ public class Main {
                 System.out.println("Введите количество зарплат: ");
                 input = scanner.nextLine();
                 count = Integer.parseInt(input);
-                for (Employee employee : company.getLowestSalaryStaff(count)) {
+                List<Employee> employeeList = company.getTopOrLowSalaryStaff(count, 1);
+                for (Employee employee : employeeList) {
                     System.out.println(employee.getMonthSalary());
                 }
             }
@@ -138,6 +140,7 @@ public class Main {
 
 
     }
+
     public static void deleteEmployee(Company company) {
         System.out.println("""
                 Как вы хотите удалить сотрудника?
@@ -163,11 +166,12 @@ public class Main {
         }
 
     }
-    public static  void deleteSomeEmployee(Company company){
+
+    public static void deleteSomeEmployee(Company company) {
         System.out.println("""
-                        Сколько сотрудников нужно удалить?
-                        1. По количеству
-                        2. По процентам""");
+                Сколько сотрудников нужно удалить?
+                1. По количеству
+                2. По процентам""");
         String input = scanner.nextLine();
         int count = Integer.parseInt(input);
         switch (count) {
@@ -205,47 +209,42 @@ public class Main {
                 2. TopManager
                 3. Operator""");
         String input = scanner.nextLine();
-        int chose = Integer.parseInt(input);
+        int choseId = Integer.parseInt(input);
         int count;
-
-        switch (chose) {
-            case 1 -> {
-                System.out.println("Сколько сотрудников нужно добавить?");
-                input = scanner.nextLine();
-                count = Integer.parseInt(input);
-                while (count != 0) {
-                    Employee employee = new Manager(company);
-                    company.hire(employee);
-                    count--;
-                }
-                System.out.println("Сотрудник(и) добавлен(ы)");
-                mainInterface(company);
-            }
-            case 2 -> {
-                System.out.println("Сколько сотрудников нужно добавить?");
-                input = scanner.nextLine();
-                count = Integer.parseInt(input);
-                while (count != 0) {
-                    Employee employee = new TopManager(company);
-                    company.hire(employee);
-                    count--;
-                }
-                System.out.println("Сотрудник(и) добавлен(ы)");
-                mainInterface(company);
-            }
-            case 3 -> {
-                System.out.println("Сколько сотрудников нужно добавить?");
-                input = scanner.nextLine();
-                count = Integer.parseInt(input);
-                while (count != 0) {
-                    Employee employee = new Operator(company);
-                    company.hire(employee);
-                    count--;
-                }
-                System.out.println("Сотрудник(и) добавлен(ы)");
-                mainInterface(company);
+        System.out.println("Сколько сотрудников нужно добавить?");
+        input = scanner.nextLine();
+        count = Integer.parseInt(input);
+        while (count != 0) {
+            Employee employee = addEmployee(choseId, company);
+            if (employee == null) {
+                return;
+            } else {
+                company.hire(employee);
+                count--;
             }
         }
+        System.out.println("Сотрудник(и) добавлен(ы)");
+        mainInterface(company);
+
+
     }
+
+    @SuppressWarnings("unchecked")
+    public static <T> T addEmployee(int idEmployeeToAdd, Company company) {
+        T emp;
+        if (idEmployeeToAdd == 1) {
+            emp = (T) new Manager(company);
+            return emp;
+        } else if (idEmployeeToAdd == 2) {
+            emp = (T) new TopManager(company);
+            return emp;
+        } else if (idEmployeeToAdd == 3) {
+            emp = (T) new Operator(company);
+            return emp;
+        } else {
+            return null;
+        }
+    }
+
 
 }
