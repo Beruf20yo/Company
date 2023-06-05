@@ -2,22 +2,15 @@ package main.java.employee;
 
 import main.java.Company;
 
-public class Manager implements Employee {
-    protected int monthSalary;
+public class Manager extends Employee {
     protected int companyIncome;
-    Company company;
 
     public Manager(Company company) {
         this.company = company;
         this.companyIncome = setCompanyIncome();
         company.setIncome(companyIncome);
     }
-
-    @Override
-    public int getMonthSalary() {
-        return monthSalary;
-    }
-
+    
     public int setCompanyIncome() {
         int startRange = 115000;
         int endRange = 140000;

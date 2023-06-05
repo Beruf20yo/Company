@@ -1,5 +1,11 @@
 package main.java.employee;
 
-public interface Employee {
-    int getMonthSalary();
+
+import lombok.Getter;
+import main.java.Company;
+
+@Getter
+public abstract class Employee {
+    int monthSalary;
+    Company company;
 }

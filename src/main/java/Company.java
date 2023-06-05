@@ -1,13 +1,8 @@
 package main.java;
 
 import main.java.employee.Employee;
-import main.java.employee.LowSalaryComparator;
-import main.java.employee.TopSalaryComparator;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Company {
     protected List<Employee> employees = new ArrayList<>();
@@ -51,20 +46,18 @@ public class Company {
     }
 
     public List<Employee> getSalaryStaff() {
-        TreeSet<Employee> SalaryTree = new TreeSet<>(new TopSalaryComparator());
+        TreeSet<Employee> SalaryTree = new TreeSet<>((emp1, emp2) -> Integer.compare(emp2.getMonthSalary(), emp1.getMonthSalary()));
         SalaryTree.addAll(employees);
         return new ArrayList<>(SalaryTree);
     }
 
-    public List<Employee> getTopOrLowSalaryStaff(int count, int setTopOrLow) {
-        TreeSet<Employee> SalaryTree;
-        if (setTopOrLow == 0) {
-            SalaryTree = new TreeSet<>(new TopSalaryComparator());
-        } else if (setTopOrLow == 1) {
-            SalaryTree = new TreeSet<>(new LowSalaryComparator());
-        } else {
-            return null;
+    public List<Employee> getTopOrLowSalaryStaff(int count, String setTopOrLow) {
+        TreeSet<Employee> SalaryTree = null;
+        switch (setTopOrLow){
+            case "Top" -> SalaryTree = new TreeSet<>((emp1, emp2) -> Integer.compare(emp2.getMonthSalary(), emp1.getMonthSalary()));
+            case "Low" -> SalaryTree = new TreeSet<>(Comparator.comparingInt(Employee::getMonthSalary));
         }
+
         List<Employee> SalaryList = new ArrayList<>();
         SalaryTree.addAll(employees);
         Iterator<Employee> it = SalaryTree.iterator();

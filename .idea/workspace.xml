@@ -6,11 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="d74acbbc-fb6e-4779-a8a0-aa31556bccf4" name="Changes" comment="Обобщение нескольких getTopSalaryStaff и getLowSalaryStaff в один метод getTopOrLowSalaryStaff&#10;Создание конкретного работника теперь выполняется через Generics&#10;Созданные ранее классы бросающие ошибки WrongCount.java и WrongNumber.java удалены">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Company.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Company.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/employee/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/employee/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/employee/LowSalaryComparator.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/employee/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/employee/Manager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/employee/Operator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/employee/Operator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/employee/TopManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/employee/TopManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/employee/TopSalaryComparator.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,10 +48,21 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/rinat/IdeaProjects/Company"
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/rinat/IdeaProjects/Company",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
@@ -78,6 +93,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684667614198</updated>
+      <workItem from="1685996105537" duration="1944000" />
     </task>
     <task id="LOCAL-00001" summary="Изменение премии у TopManager было +50% стало +150%">
       <created>1684758593728</created>
@@ -116,6 +132,9 @@
     </task>
     <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Изменение премии у TopManager было +50% стало +150%" />

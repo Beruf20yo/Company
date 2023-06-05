@@ -110,7 +110,6 @@ public class Main {
                 3. Узнать самые низкие зарплаты""");
         String input = scanner.nextLine();
         int chose = Integer.parseInt(input);
-        int count;
         switch (chose) {
             case 1 -> {
                 for (Employee employee : company.getSalaryStaff()) {
@@ -119,26 +118,33 @@ public class Main {
                 }
             }
             case 2 -> {
-                System.out.println("Введите количество зарплат: ");
-                input = scanner.nextLine();
-                count = Integer.parseInt(input);
-                List<Employee> employeeList = company.getTopOrLowSalaryStaff(count, 0);
+                switchSalaryStaff("TopSalaryStaff",company);
+            }
+            case 3 -> {
+                switchSalaryStaff("LowSalaryStaff",company);
+            }
+            default -> throw new IllegalStateException("Unexpected value: " + chose);
+        }
+
+    }
+    public static void switchSalaryStaff(String chose, Company company){
+        System.out.println("Введите количество зарплат: ");
+        String input = scanner.nextLine();
+        int count = Integer.parseInt(input);
+        switch (chose) {
+            case "TopSalaryStaff" -> {
+                List<Employee> employeeList = company.getTopOrLowSalaryStaff(count, "Top");
                 for (Employee employee : employeeList) {
                     System.out.println(employee.getMonthSalary());
                 }
             }
-            case 3 -> {
-                System.out.println("Введите количество зарплат: ");
-                input = scanner.nextLine();
-                count = Integer.parseInt(input);
-                List<Employee> employeeList = company.getTopOrLowSalaryStaff(count, 1);
+            case "LowSalaryStaff" -> {
+                List<Employee> employeeList = company.getTopOrLowSalaryStaff(count, "Low");
                 for (Employee employee : employeeList) {
                     System.out.println(employee.getMonthSalary());
                 }
             }
         }
-
-
     }
 
     public static void deleteEmployee(Company company) {
